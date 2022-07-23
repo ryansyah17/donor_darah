@@ -1,6 +1,8 @@
 import 'package:donor_darah/models/schedlu.dart';
 import 'package:donor_darah/shared/shared.dart';
+import 'package:donor_darah/ui/pages/cobamap.dart';
 import 'package:donor_darah/ui/pages/detailstokdarahpage.dart';
+import 'package:donor_darah/ui/pages/pick_location.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,8 +16,8 @@ class StokDarahCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => DetailStokDarahPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MapView()));
       },
       child: Column(
         children: [

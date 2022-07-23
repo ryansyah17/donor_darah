@@ -1,3 +1,4 @@
+import 'package:donor_darah/models/geolocationpoint.dart';
 import 'package:donor_darah/shared/shared.dart';
 import 'package:donor_darah/ui/pages/daftardonorpage.dart';
 import 'package:donor_darah/ui/pages/historypage.dart';
@@ -7,6 +8,7 @@ import 'package:donor_darah/ui/pages/urgentnotificationpage.dart';
 import 'package:donor_darah/ui/pages/user_location.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:provider/provider.dart';
 import 'package:supercharged/supercharged.dart';
 
 class HomePage extends StatefulWidget {
@@ -180,97 +182,98 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
+                            // Container(
+                            //   margin: EdgeInsets.symmetric(vertical: 15),
+                            //   height: 50,
+                            //   decoration: BoxDecoration(
+                            //     borderRadius: BorderRadius.circular(22),
+                            //     color: "630000".toColor(),
+                            //   ),
+                            //   child: Row(
+                            //     mainAxisAlignment:
+                            //         MainAxisAlignment.spaceBetween,
+                            //     children: [
+                            //       Container(
+                            //         height: 50,
+                            //         margin:
+                            //             EdgeInsets.symmetric(horizontal: 15),
+                            //         // width: MediaQuery.of(context).size.width - 200,
+                            //         decoration: BoxDecoration(
+                            //           borderRadius: BorderRadius.circular(8),
+                            //         ),
+                            //         child: Center(
+                            //           child: Text(
+                            //             'Relawan Pendonor',
+                            //             style: GoogleFonts.poppins(
+                            //               fontWeight: FontWeight.w500,
+                            //               fontSize: 18,
+                            //               color: Colors.white,
+                            //             ),
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       Spacer(),
+                            //       Container(
+                            //         margin:
+                            //             EdgeInsets.symmetric(horizontal: 15),
+                            //         child: AnimatedContainer(
+                            //           duration: Duration(milliseconds: 500),
+                            //           height: 30,
+                            //           width: 60,
+                            //           decoration: BoxDecoration(
+                            //             borderRadius: BorderRadius.circular(20),
+                            //             color: toggleValue
+                            //                 ? Colors.white
+                            //                 : Colors.white,
+                            //           ),
+                            //           child: Stack(
+                            //             children: [
+                            //               AnimatedPositioned(
+                            //                   curve: Curves.easeIn,
+                            //                   top: 3.0,
+                            //                   left: toggleValue ? 30 : 0,
+                            //                   right: toggleValue ? 0 : 30,
+                            //                   duration:
+                            //                       Duration(milliseconds: 500),
+                            //                   child: InkWell(
+                            //                     onTap: toggleButton,
+                            //                     child: AnimatedSwitcher(
+                            //                         duration: Duration(
+                            //                             milliseconds: 500),
+                            //                         transitionBuilder: (Widget
+                            //                                 child,
+                            //                             Animation<double>
+                            //                                 animation) {
+                            //                           return RotationTransition(
+                            //                             turns: animation,
+                            //                             child: child,
+                            //                           );
+                            //                         },
+                            //                         child: toggleValue
+                            //                             ? Icon(
+                            //                                 Icons.check_circle,
+                            //                                 color: "630000"
+                            //                                     .toColor(),
+                            //                                 size: 25,
+                            //                                 key: UniqueKey())
+                            //                             : Icon(
+                            //                                 Icons
+                            //                                     .remove_circle_outline,
+                            //                                 color: "630000"
+                            //                                     .toColor(),
+                            //                                 size: 25,
+                            //                                 key: UniqueKey())),
+                            //                   )),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                             Container(
-                              margin: EdgeInsets.symmetric(vertical: 15),
-                              height: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(22),
-                                color: "630000".toColor(),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 50,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 15),
-                                    // width: MediaQuery.of(context).size.width - 200,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Relawan Pendonor',
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 15),
-                                    child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 500),
-                                      height: 30,
-                                      width: 60,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: toggleValue
-                                            ? Colors.white
-                                            : Colors.white,
-                                      ),
-                                      child: Stack(
-                                        children: [
-                                          AnimatedPositioned(
-                                              curve: Curves.easeIn,
-                                              top: 3.0,
-                                              left: toggleValue ? 30 : 0,
-                                              right: toggleValue ? 0 : 30,
-                                              duration:
-                                                  Duration(milliseconds: 500),
-                                              child: InkWell(
-                                                onTap: toggleButton,
-                                                child: AnimatedSwitcher(
-                                                    duration: Duration(
-                                                        milliseconds: 500),
-                                                    transitionBuilder: (Widget
-                                                            child,
-                                                        Animation<double>
-                                                            animation) {
-                                                      return RotationTransition(
-                                                        turns: animation,
-                                                        child: child,
-                                                      );
-                                                    },
-                                                    child: toggleValue
-                                                        ? Icon(
-                                                            Icons.check_circle,
-                                                            color: "630000"
-                                                                .toColor(),
-                                                            size: 25,
-                                                            key: UniqueKey())
-                                                        : Icon(
-                                                            Icons
-                                                                .remove_circle_outline,
-                                                            color: "630000"
-                                                                .toColor(),
-                                                            size: 25,
-                                                            key: UniqueKey())),
-                                              )),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,

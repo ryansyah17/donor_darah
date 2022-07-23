@@ -283,7 +283,7 @@ class _InformationPageState extends State<InformationPage> {
                                       )),
                                 ],
                               ),
-                            ),
+                            ),  
                           ),
                           GestureDetector(
                             onTap: () {

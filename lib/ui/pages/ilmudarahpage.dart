@@ -37,14 +37,14 @@ class IlmuDarahPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              child: Text('History',
+                              child: Text('Apa Itu Darah?',
                                   style: GoogleFonts.poppins(
                                       color: Colors.black,
                                       fontSize: 25,
                                       fontWeight: FontWeight.w400)),
                             ),
                             Container(
-                              width: 75,
+                              width: 160,
                               height: 10,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
@@ -75,19 +75,38 @@ class IlmuDarahPage extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   // color: Colors.blue,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                         width: MediaQuery.of(context).size.width - 60,
                         height: 150,
                         decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: NetworkImage(
                                     'https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2021/01/31/2736410jpg-20210131121959.jpg'),
                                 fit: BoxFit.cover)),
                       ),
                       Container(
-                        height: 1000,
-                      )
+                        child: Text(
+                          'Cara Menjaga Kesehatan',
+                          style: GoogleFonts.poppins(
+                              fontSize: 22, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                        height: 500,
+                        width: MediaQuery.of(context).size.width - 50,
+                        decoration: BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Center(child: Text('Segera')),
+                      ),
                     ],
                   ),
                 ),

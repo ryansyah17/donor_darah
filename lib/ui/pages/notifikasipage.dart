@@ -1,3 +1,5 @@
+import 'package:donor_darah/models/notifikasi.dart';
+import 'package:donor_darah/ui/widgets/notifikasi_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
@@ -37,14 +39,14 @@ class NotifikasiPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              child: Text('History',
+                              child: Text('Notification',
                                   style: GoogleFonts.poppins(
                                       color: Colors.black,
                                       fontSize: 25,
                                       fontWeight: FontWeight.w400)),
                             ),
                             Container(
-                              width: 75,
+                              width: 125,
                               height: 10,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
@@ -75,20 +77,8 @@ class NotifikasiPage extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   // color: Colors.blue,
                   child: Column(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width - 60,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2021/01/31/2736410jpg-20210131121959.jpg'),
-                                fit: BoxFit.cover)),
-                      ),
-                      Container(
-                        height: 1000,
-                      )
-                    ],
+                    children:
+                        mocknotifikasi.map((e) => NotifikasiCard(e)).toList(),
                   ),
                 ),
               ]))

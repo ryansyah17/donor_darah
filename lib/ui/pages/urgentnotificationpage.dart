@@ -19,6 +19,7 @@ class _UrgentNotificationPageState extends State<UrgentNotificationPage> {
   TextEditingController banyakDarah = TextEditingController(text: '');
   TextEditingController golDarah = TextEditingController(text: '');
   TextEditingController resusDarah = TextEditingController(text: '');
+  TextEditingController kontak = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -316,6 +317,39 @@ class _UrgentNotificationPageState extends State<UrgentNotificationPage> {
                       ),
                       SizedBox(
                         height: 30,
+                      ),
+                      TextFormField(
+                        key: ValueKey('kontak'),
+                        controller: kontak,
+                        keyboardType: TextInputType.phone,
+                        style: blackFontStyle2,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          contentPadding: new EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 15.0,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          labelText: 'Kontak Keluarga',
+                          labelStyle: TextStyle(fontSize: 14),
+                        ),
+                        validator: (value) {
+                          RegExp regExp = RegExp(r'^.{4,}$');
+                          if (value!.isEmpty) {
+                            return 'Nama tidak boleh kosong';
+                          }
+                          if (!regExp.hasMatch(value)) {
+                            return 'Nama tidak valid (Min. 4 karakter)';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          setState(() {
+                            golDarah.text = value!;
+                          });
+                        },
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

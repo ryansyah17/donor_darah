@@ -5,8 +5,8 @@
     android:versionName="1.0.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="31" />
+        android:minSdkVersion="21"
+        android:targetSdkVersion="33" />
     <!--
          The INTERNET permission is required for development. Specifically,
          the Flutter tool needs it to communicate with the running application
@@ -14,7 +14,19 @@
     -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include required permissions for Google Maps API to run. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <queries>
+
+        <!-- Needs to be explicitly declared on Android R+ -->
+        <package android:name="com.google.android.apps.maps" />
+    </queries>
 
     <application
         android:name="android.app.Application"
@@ -52,9 +64,17 @@
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
         -->
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDFPs-fQDQirLqkZkhOhZzuif8uItkpnZA" />
+        <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <service
+            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
         <service
             android:name="com.lyokone.location.FlutterLocationService"
             android:enabled="true"
@@ -66,6 +86,9 @@
             android:required="false" />
         <uses-library
             android:name="androidx.window.sidecar"
+            android:required="false" /> <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
             android:required="false" />
 
         <activity
